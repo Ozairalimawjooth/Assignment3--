@@ -1,0 +1,711 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; 
+  color: #333333;
+}
+
+body, ul, li, a, h1, header {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---Navigation Bar Styling--- */
+.navbar {
+  background: var(--navbar-background, linear-gradient(to right, #ee9172, #f08865)); /* Dynamic background for light and dark mode */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Sticky Navbar Style */
+.navbar.sticky {
+  padding: 10px 20px;
+  background: var(--navbar-sticky-background, linear-gradient(to right, #ed7c44, #fc7f6c)); /* Dynamic sticky background */
+}
+
+/* Navbar Container */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  justify-content: space-around;
+  flex: 2; /* Flexbox for spacing */
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--nav-link-color, white); /* Dynamic link color */
+  font-size: 16px;
+  padding: 10px 15px;
+  transition: color 0.3s; /* Hover effect */
+}
+
+.nav-links li a:hover {
+  color: var(--nav-link-hover-color, #ffe066); /* Dynamic hover color */
+}
+
+/* Ensure active link is styled consistently */
+.nav-links li a:visited {
+  color: var(--nav-link-color, white); /* Match the default link color */
+}
+
+.nav-links li a:active {
+  color: var(--nav-link-hover-color, #ffe066); /* Match hover color for active state */
+}
+
+/* Centered Logo */
+.brand-logo {
+  font-size: 20px;
+  color: var(--nav-link-color, white); /* Dynamic logo color */
+  font-weight: bold;
+  text-align: center;
+  flex: 1; /* Center logo using flex */
+}
+
+/* Navbar Icons (Search and Cart) */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-icons img.icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.navbar-icons img.icon:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide links for mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: var(--navbar-background, white); /* Dynamic background */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    color: var(--nav-link-color, #333); /* Dynamic link color for dropdown */
+  }
+}
+
+/* Dark Mode */
+body.dark-mode .navbar {
+  --navbar-background: linear-gradient(to right, #8b1b1b, #b02e2e); /* Dark mode gradient */
+  --navbar-sticky-background: linear-gradient(to right, #222222, #000000); /* Sticky background in dark mode */
+}
+
+body.dark-mode .brand-logo {
+  --nav-link-color: #ffffff; /* White links in dark mode */
+}
+
+body.dark-mode .nav-links li a:hover {
+  --nav-link-hover-color: #ffd700; /* Gold hover effect in dark mode */
+}
+
+/* ---Hero Section--- */
+#hero-1619 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#hero-1619 .cs-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+#hero-1619 .cs-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  color: var(--hero-title-color, #000); /* Default: Black for light mode */
+}
+
+#hero-1619 .cs-text {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  color: var(--hero-text-color, #000); /* Default: Black for light mode */
+}
+
+.cs-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Dark Mode */
+body.dark-mode #hero-1619 .cs-title {
+  --hero-title-color: #fff; /* White for dark mode */
+}
+
+body.dark-mode #hero-1619 .cs-text {
+  --hero-text-color: #fff; /* White for dark mode */
+}
+
+/* ---Product Showcase Section--- */
+#product-showcase {
+  padding: 2rem;
+  text-align: center;
+  background-color: #f9f9f9; /* Light Mode background */
+}
+
+#product-showcase .cs-section-title {
+  font-size: 2.5rem;
+  color: #333; /* Light Mode text color */
+  margin-bottom: 1rem;
+}
+
+#product-showcase .cs-intro-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #666; /* Light Mode text color */
+  margin-bottom: 1.5rem;
+}
+
+.cs-button-solid {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #ff6a3e;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cs-button-solid:hover {
+  background-color: #e55a2e;
+}
+
+/* ---Product Gallery--- */
+.cs-product-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.cs-product {
+  text-align: center;
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cs-product img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+}
+
+.cs-product-name {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.cs-product-price {
+  color: #ff6a3e;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.cs-add-to-cart {
+  background-color: #ff6a3e;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.cs-add-to-cart:hover {
+  background-color: #e55a2e;
+}
+
+/* Dark Mode */
+.dark-mode #product-showcase {
+  background-color: #333; 
+}
+
+.dark-mode #product-showcase .cs-section-title {
+  color: #fff; /* White text for section title */
+}
+
+.dark-mode #product-showcase .cs-intro-text {
+  color: #ddd; /* Lighter text for intro */
+}
+
+.dark-mode .cs-product {
+  background: #444; /* Dark background for product cards */
+  border: 1px solid #555; 
+  color: #fff; 
+}
+
+.dark-mode .cs-product img {
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Slight glow for images */
+}
+
+.dark-mode .cs-product-price {
+  color: #ffc107; /* Yellow price color */
+}
+
+.dark-mode .cs-add-to-cart {
+  background-color: #ffc107; /* Yellow button background */
+  color: #333; 
+}
+
+.dark-mode .cs-add-to-cart:hover {
+  background-color: #ffb300; /* Slightly darker yellow for hover */
+}
+
+/* ---Promotions Section--- */
+#promotions {
+  padding: 3rem 1rem;
+  background: linear-gradient(to bottom, #f8b400, #f28e00); /* Light Mode background */
+  text-align: center;
+}
+
+#promotions .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#promotions .section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+/* Promotions Grid */
+.promotion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Promotion Card */
+.promotion-card {
+  background: #fff; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 400px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promotion-card img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 0.8rem;
+  max-height: 180px;
+}
+
+.promotion-card h3 {
+  font-size: 1.25rem;
+  color: #333; 
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.promotion-card p {
+  font-size: 1rem;
+  color: #555; 
+  text-align: center;
+  margin: 0.2rem 0;
+  min-height: 3rem; /* Uniform spacing for all cards */
+}
+
+.promotion-card .shop-now-btn {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #ff6a3e;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.promotion-card .shop-now-btn:hover {
+  background-color: #e55a2e;
+}
+
+/* Dark Mode */
+.dark-mode #promotions {
+  background: linear-gradient(to bottom, #333, #222); /* Dark Mode gradient */
+}
+
+.dark-mode .promotion-card {
+  background: #444; 
+  color: #fff; 
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .promotion-card h3 {
+  color: #ffc107; 
+}
+
+.dark-mode .promotion-card p {
+  color: #ddd; 
+}
+
+.dark-mode .promotion-card .shop-now-btn {
+  background-color: #ffc107; 
+  color: #333; 
+}
+
+.dark-mode .promotion-card .shop-now-btn:hover {
+  background-color: #ffb300; /* Slightly darker gold on hover */
+}
+
+/* ---Shop Now Button Styling--- */
+.promotion-card .shop-now-btn {
+display: block !important;
+visibility: visible !important;
+position: relative;
+padding: 10px 20px;
+background-color: #ff6600;
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+text-align: center;
+font-size: 1rem;
+margin: 10px auto; /* Center the button */
+}
+.promotion-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* ---Section Styling--- */
+#categories {
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, #f8e6d6, #f9d8b8); 
+    text-align: center;
+    transition: background 0.3s ease; /* Smooth transition for mode toggle */
+}
+
+.dark-mode #categories {
+    background: linear-gradient(to bottom, #333, #222); /* Dark Mode background */
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333; 
+    font-weight: bold;
+    transition: color 0.3s ease; 
+}
+
+.dark-mode .section-title {
+    color: #ffc107; 
+}
+
+/* Grid Styling */
+.categories-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Category Card */
+.category-card {
+    position: relative;
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light Mode shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.dark-mode .category-card {
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Light shadow in Dark Mode */
+}
+
+.category-card:hover {
+    transform: scale(1.03);
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+/* Category Labels */
+.category-label {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7); /* Black background */
+  color: #fff; 
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .category-label {
+  background-color: #000; 
+  color: #fff; 
+}
+
+/* Shop Now Button */
+.shop-now-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff6600; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.shop-now-btn:hover {
+    background-color: #ff4500;
+}
+
+.dark-mode .shop-now-btn {
+    background-color: #ffc107; /* Gold button in Dark Mode */
+    color: #333; 
+}
+
+.dark-mode .shop-now-btn:hover {
+    background-color: #ffb300; /* Slightly darker gold on hover */
+}
+
+/* Customer Reviews Section */
+#customer-reviews {
+  padding: 60px 20px;
+  background-color: var(--review-bg, #fff4e6);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--review-title-color, #333);
+  margin-bottom: 40px;
+}
+
+.reviews-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.review-card {
+  background: var(--review-card-bg, #fff); 
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  text-align: left;
+  padding: 20px;
+  border: var(--review-card-border, none); /* Default no border */
+}
+
+.customer-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.star-rating {
+  color: #ffcc00; /* Bright yellow for both modes */
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.testimonial {
+  font-size: 1rem;
+  color: var(--review-text-color, #555); /* Light mode */
+  font-style: italic;
+}
+
+/* Dark Mode */
+body.dark-mode #customer-reviews {
+  --review-bg: #1c1c1e;
+  --review-title-color: #ffc107;
+  --review-card-bg: #2c2c2e;
+  --review-card-border: 1px solid #444;
+  --review-text-color: #ddd;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: var(--footer-bg, #fff); /* Light mode */
+  color: var(--footer-text-color, #333); 
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-brand {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-brand h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: var(--footer-title-color, #333);
+}
+
+.social-media a img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.footer-links {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-links h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--footer-title-color, #333);
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 5px;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: var(--footer-link-color, #333);
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: var(--footer-link-hover, #f05454);
+}
+
+.footer-extras {
+  flex: 1;
+  text-align: right;
+}
+
+.payment-methods img {
+  width: 36px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.country-selector {
+  margin-top: 20px;
+}
+
+.country-selector label {
+  font-size: 14px;
+  margin-right: 10px;
+  color: var(--footer-text-color, #333);
+}
+
+.country-selector select {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid var(--footer-border-color, #ccc);
+  border-radius: 4px;
+}
+
+/* Dark Mode */
+body.dark-mode .footer {
+  --footer-bg: #1c1c1e;
+  --footer-text-color: #ccc;
+  --footer-title-color: #ffc107;
+  --footer-link-color: #aaa;
+  --footer-link-hover: #ff9900;
+  --footer-border-color: #444;
+}
+
